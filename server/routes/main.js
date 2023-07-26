@@ -11,10 +11,11 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/post/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
     let slug = req.params.id
     const data = await Post.findById({_id: slug})
+    console.log(data)
     res.json(data)
   } catch (err) {
     console.log(err)

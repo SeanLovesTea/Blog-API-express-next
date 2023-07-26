@@ -23,9 +23,11 @@ export default function Home() {
     return (
       <main>
           {backendData.map(post => (
-            <div key={post.id}>
-              <h1>{post.title}</h1>
-              <p>{post.body}</p>
+            <div key={post._id}>
+              <a href={`/post/${post._id}`}>
+                <h1>{post.title}</h1>
+                <p>{post.body}</p>
+              </a>
             </div>
           ))}
       </main>
