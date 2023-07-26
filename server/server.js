@@ -8,6 +8,12 @@ const mainRoute = require('./routes/main')
 const app = express()
 const PORT = 5000 || process.env.PORT
 
+// MongoDb Connection
+const mongoDb = process.env.MONGO_KEY ;
+mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "mongo connection error"));
+
 app.use(express.static('public'))
 
 // Templating Engine
