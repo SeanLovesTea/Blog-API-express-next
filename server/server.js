@@ -2,6 +2,9 @@ require('dotenv').config()
 
 const express = require('express')
 const expressLayout = require('express-ejs-layouts')
+const mongoose = require('mongoose')
+const cors = require('cors')
+
 const mainRoute = require('./routes/main')
 
 
@@ -14,6 +17,7 @@ mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
+app.use(cors())
 app.use(express.static('public'))
 
 // Templating Engine
