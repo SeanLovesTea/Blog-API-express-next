@@ -1,7 +1,7 @@
 
-//import RemoveBtn from './RemoveBtn'
+import RemoveBtn from './RemoveBtn'
 import Link from 'next/link'
-//import { HiPencilAlt } from 'react-icons/hi'
+import { HiPencilAlt } from 'react-icons/hi'
 
 const getPosts = async () => {
   try {
@@ -32,10 +32,10 @@ export default async function Post () {
           <h2 className='font-bold text-2xl'>{post.title}</h2>
           <p>{post.body}</p>
         </div>
-        {/* <div className='flex gap-2'>
+        <div className='flex gap-2'>
           <RemoveBtn id={post._id}/>
-          <Link href={`/editPost/${post._id}`}><HiPencilAlt size={24} /></Link>
-        </div> */}
+          <Link href={`/edit-post/${post._id}`}><HiPencilAlt size={24} /></Link>
+        </div>
       </div>
     ))}
     </>

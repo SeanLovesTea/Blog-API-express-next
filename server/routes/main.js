@@ -51,10 +51,14 @@ router.put('/edit-post/:id', async (req, res) => {
     console.log(error)
   }
 })
-// router.post('/add-post'), async (req, res) => {
-//   try{
+router.delete('/delete-post/:id', async (req, res) => {
 
-//   }
-// }
+  try {
+    await Post.deleteOne({ _id: req.params.id });
+    res.end()
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 module.exports = router
