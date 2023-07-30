@@ -10,6 +10,14 @@ router.get('/', async (req, res) => {
     console.log(err)
   }
 })
+router.get('/published', async (req, res) => {
+  try {
+    const data = await Post.find({ published: true })
+    res.json(data)
+  } catch (err) {
+    console.log(err)
+  }
+})
 
 router.get('/post/:id', async (req, res) => {
   try {
@@ -38,15 +46,13 @@ router.post('/add-post', async (req, res) => {
 })
 router.put('/edit-post/:id', async (req, res) => {
   try {
-
-    const data = await Post.findByIdAndUpdate(req.params.id, {
+    await Post.findByIdAndUpdate(req.params.id, {
       title: req.body.title,
       body: req.body.body,
       published: req.body.published,
       updatedAt: Date.now()
     })
-    //res.redirect(`/edit-post/${req.params.id}`)
-    res.json(data)
+    res.send("success")
   } catch (error) {
     console.log(error)
   }

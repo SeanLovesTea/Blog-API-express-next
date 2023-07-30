@@ -31,6 +31,7 @@ export default async function Post () {
         <div>
           <h2 className='font-bold text-2xl'>{post.title}</h2>
           <p>{post.body}</p>
+          {(post.published) ? <span className='font-bold text-green-400'>Published</span> : <span className='font-bold text-red-400'>Not Published</span>}
         </div>
         <div className='flex gap-2'>
           <RemoveBtn id={post._id}/>

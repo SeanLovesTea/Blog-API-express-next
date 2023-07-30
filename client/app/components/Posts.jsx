@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const getPosts = async () => {
   try {
-    const res = await fetch('http://localhost:5000', {
+    const res = await fetch('http://localhost:5000/published', {
       cache: 'no-store',
     })
 
@@ -23,7 +23,7 @@ const getPosts = async () => {
 export default async function Post () {
 
   const posts = await getPosts()
-  console.log( posts + "this is posts")
+
   return (
     <>
     {posts?.map(post => (
@@ -32,10 +32,6 @@ export default async function Post () {
           <h2 className='font-bold text-2xl'>{post.title}</h2>
           <p>{post.body}</p>
         </div>
-        {/* <div className='flex gap-2'>
-          <RemoveBtn id={post._id}/>
-          <Link href={`/editPost/${post._id}`}><HiPencilAlt size={24} /></Link>
-        </div> */}
       </div>
     ))}
     </>

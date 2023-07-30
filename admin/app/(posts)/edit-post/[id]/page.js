@@ -20,7 +20,7 @@ export default async function Editpost({ params }) {
   const { id } = params;
   const post = await getPostById(id)
   console.log(post)
-  const { title, body } = post;
+  const { title, body, published} = post;
 
-   return <EditPostForm id={id} title={title} body={body} />;
+  return <EditPostForm id={id} title={title} body={body} published={published} />;
 }
