@@ -49,10 +49,13 @@ export default function AddPost() {
       className='border border-slate-500 px-8 py-2'
       placeholder='Post body'
       />
-      <input
-      type='checkbox'
-      onChange={(e) => setIsPublished(e.target.checked)}
-      />
+      <div>
+        <input
+        type='checkbox'
+        onChange={(e) => setIsPublished(e.target.checked)}
+        />
+        <span>Publish</span>
+      </div>
 
       <button type='submit' className='bg-green-600 font-bold text-white py-3 px-6 w-fit'>Add Post</button>
     </form>
